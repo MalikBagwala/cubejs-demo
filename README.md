@@ -23,6 +23,11 @@ This project showcases the capabilities of **CubeJS** by integrating it with a *
 
 1. For simplicity and focus, the project utilizes a **ecom-dump.sql** from a demo project. This eliminates the need for extensive data modeling and migrations, streamlining the development process.
 
+## Screenshots
+
+<img width="1721" alt="Screenshot 2023-12-21 at 10 27 37 PM" src="https://github.com/MalikBagwala/cubejs-demo/assets/23068029/36b2561f-3825-48dc-8734-ae6393114f30">
+<img width="1715" alt="Screenshot 2023-12-21 at 10 27 06 PM" src="https://github.com/MalikBagwala/cubejs-demo/assets/23068029/03f8fe21-bb32-4318-a7a2-0d11adef4d59">
+<img width="1721" alt="Screenshot 2023-12-21 at 10 27 21 PM" src="https://github.com/MalikBagwala/cubejs-demo/assets/23068029/53e3c189-14ce-4978-978c-ce888d7d9130">
 
 ## Steps
 
