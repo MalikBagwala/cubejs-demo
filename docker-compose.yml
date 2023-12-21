@@ -1,0 +1,60 @@
+version: '3.9'
+
+services:
+  postgres:
+    container_name: cube-datasource
+    image: postgis/postgis
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - postgres
+
+  cube:
+    container_name: cube-engine
+    image: cubejs/cube:latest
+    depends_on:
+      - postgres
+    ports:
+      - 4000:4000
+      - 15432:15432
+    environment:
+      - CUBEJS_DEV_MODE=true
+      - CUBEJS_DB_TYPE=postgres
+      - CUBEJS_DB_HOST=postgres
+      - CUBEJS_DB_NAME=${POSTGRES_DB}
+      - CUBEJS_DB_USER=${POSTGRES_USER}
+      - CUBEJS_DB_PASS=${POSTGRES_PASSWORD}
+      - CUBEJS_DB_PORT=5432
+      - CUBEJS_WEB_SOCKETS=true
+      - CUBEJS_API_SECRET=${JWT_SECRET}
+    volumes:
+      - .:/cube/conf
+    networks:
+      - postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - 80:80
+    depends_on:
+      - postgres
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
+volumes:
+  postgres:
+  pgadmin:
