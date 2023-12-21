@@ -2,6 +2,7 @@
 import React, { useRef, useMemo } from 'react';
 import { useCubeQuery } from '@cubejs-client/react';
 import * as d3 from 'd3';
+import { Skeleton } from '@mantine/core';
 
 const COLORS_SERIES = [
   '#7A77FF',
@@ -194,9 +195,15 @@ const ChartRenderer = ({ vizState }) => {
   const ChartComponent = TypeToChartComponent[chartType];
 
   const renderProps = useCubeQuery(query);
+  console.log(renderProps.isLoading);
 
   return (
-    ChartComponent && <ChartComponent resultSet={renderProps.resultSet} pivotConfig={pivotConfig} />
+    <>
+      {renderProps?.isLoading && <Skeleton height={CHART_HEIGHT} />}
+      {ChartComponent && (
+        <ChartComponent resultSet={renderProps.resultSet} pivotConfig={pivotConfig} />
+      )}
+    </>
   );
 };
 

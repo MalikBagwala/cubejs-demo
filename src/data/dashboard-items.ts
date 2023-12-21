@@ -74,3 +74,31 @@ export const DASHBOARD_ITEMS = [
     },
   },
 ];
+
+export const CUSTOM_CHARTS = [
+  {
+    id: 4,
+    name: 'Orders by gender across product categories',
+    vizState: {
+      query: {
+        measures: ['orders.count'],
+        timeDimensions: [
+          {
+            dimension: 'orders.created_at',
+          },
+        ],
+        order: {
+          'orders.count': 'desc',
+        },
+        dimensions: ['users.gender', 'product_categories.name'],
+      },
+      chartType: 'bar',
+      pivotConfig: {
+        x: ['product_categories.name'],
+        y: ['users.gender'],
+        fillMissingDates: true,
+        joinDateRange: false,
+      },
+    },
+  },
+];
