@@ -22,7 +22,7 @@ export function HomePage() {
       </SimpleGrid>
       <Paper w={'100%'} p={'sm'} my={'md'}>
         <Text fw={'bold'} truncate="end">
-          Below are the charts from existing tutorials
+          Custom chart
         </Text>
       </Paper>
       <SimpleGrid cols={1}>
