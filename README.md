@@ -15,9 +15,9 @@ This project showcases the capabilities of **CubeJS** by integrating it with a *
 
 ## Project USPs and Improvement
 
-1. **Cutting Edge Front-end Technologies with a clean design** - This project improves immensely on all the example projects in its clean and modern approach towards Front-end dashboard development using React
-2. **Dockerized Environment** - All the services (expect the client app) are dockerized resulting in a smooth dev journey
-3. **Takes on more complex visualizations using D3** - this project builds on all the example projects by cube team and introduces one complex visualization
+1. **Cutting Edge Front-end Technologies with a clean design** - This project improves on all the example projects in its clean and modern approach towards Front-end dashboard development using React and Mantine
+2. **Dockerized Environment** - All the services (expect the client app) are dockerized resulting in a smooth dev process.
+3. **Custom Dashboards using D3** - this project builds on all the example projects by cube team and introduces one custom visualization
 
 ## Project Notes
 
@@ -29,25 +29,23 @@ This project showcases the capabilities of **CubeJS** by integrating it with a *
 <img width="1715" alt="Screenshot 2023-12-21 at 10 27 06 PM" src="https://github.com/MalikBagwala/cubejs-demo/assets/23068029/03f8fe21-bb32-4318-a7a2-0d11adef4d59">
 <img width="1721" alt="Screenshot 2023-12-21 at 10 27 21 PM" src="https://github.com/MalikBagwala/cubejs-demo/assets/23068029/53e3c189-14ce-4978-978c-ce888d7d9130">
 
-## Steps
-
-### Prepare Database
-
-1. `docker compose up -d`
-2. `docker exec -i cube-datasource psql -U malik --dbname cube < ecom-dump.sql`
+## Steps for setting up on local machine
 
 ### Load env variables
 
 1. copy `.env.example` to `.env`
 
+### Prepare Database and docker containers (https://docs.docker.com/engine/install/ to install docker)
+
+1. `docker compose up -d`
+2. `docker exec -i cube-datasource psql -U malik --dbname cube < ecom-dump.sql`
+
+### Spin up react dashboard
+
+1. `yarn install`
+2. `yarn dev`
+3. dashboard is available at https://localhost:3000
+
 ## CubeJS Playground
 
 available at http://localhost:4000
-
-## React Dashboard
-
-1. `cd dashboard`
-2. `yarn dev`
-3. dashboard is available at https://localhost:3000
-   
-> Reference - https://cube.dev/blog/d3-dashboard-with-react-and-material-ui
