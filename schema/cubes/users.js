@@ -1,48 +1,46 @@
 cube(`users`, {
   sql_table: `public.users`,
-  
+
   data_source: `default`,
-  
-  joins: {
-    
-  },
-  
+
+  joins: {},
+
   dimensions: {
     id: {
       sql: `id`,
       type: `number`,
-      primary_key: true
+      primary_key: true,
     },
-    
+
     city: {
       sql: `city`,
-      type: `string`
+      type: `string`,
     },
-    
+
     company: {
       sql: `company`,
-      type: `string`
+      type: `string`,
     },
-    
+
     gender: {
       sql: `gender`,
-      type: `string`
+      type: `string`,
     },
-    
+
     created_at: {
       sql: `created_at`,
-      type: `time`
-    }
+      type: `time`,
+    },
   },
-  
+
   measures: {
     count: {
-      type: `count`
-    }
+      type: `count`,
+    },
   },
-  
+
   pre_aggregations: {
     // Pre-aggregation definitions go here.
     // Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
-  }
+  },
 });
